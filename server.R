@@ -15,9 +15,9 @@ hila<-read.xlsx(hila_osoite, sheet=1, detectDates = TRUE)
 #FIMEA perusrekisteri
 fimea<-"https://www.fimea.fi/documents/160140/1128399/pakkaus1.txt/1fdad9d7-7933-4cb5-b459-fed2eb25b32d"
 temp=tempfile(fileext=".txt")
-download.file(fimea, destfile=temp, mode="w")
+download.file(fimea, destfile=temp)
 perusrek<-read.table(temp, header=TRUE, sep=";")
-perusrek<-perusrek[,c(2,5:6,9:12,14,19:21,29:31,38)]
+#perusrek<-perusrek[,c(2,5:6,9:12,14,19:21,29:31,38)]
 ##########################################################
 data<-merge(perusrek, hila, by.x="VNRNRO", by.y="VNRO")
 
